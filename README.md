@@ -1,3 +1,4 @@
-# PlotGenerator
-## This is a little plot generator app.
-## You can try this web app on the following url: https://plotgenerator-1.firebaseapp.com
+# Star Wars Plot Generator
+## You can try this web app on the following url: [https://plotgenerator-1.firebaseapp.com]
+#### After you typed in the title, description, and added your desired resources, you can export the whole plot either in JSON format or to PDF
+#### Created by Oliver Tomondy
