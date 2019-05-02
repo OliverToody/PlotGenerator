@@ -1,0 +1,48 @@
+a {
+    cursor: pointer;
+}
+.card {
+  background-color: #212529 !important;
+  margin: 5px;
+    border-radius: 20px;
+    p {
+        margin:2px !important
+    }
+}
+
+.load-div {
+    text-align: center;
+    font-size: 25px;
+    padding: 20px;
+}
+
+.res-header {
+    padding:20px;
+    border-radius: 20px;
+    margin:5px;
+    background-color: #212529;
+  }
+.res-data {
+    height: 70vh;
+    margin-top:5px;
+    overflow-y: scroll;
+}
+//scrollbar
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #3c4297;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

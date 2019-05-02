@@ -1,0 +1,35 @@
+.container-fluid {
+    padding:100px;
+    height:50vh;
+
+   .wrap {
+    background: #3c4297cf;
+    display: inline-block;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 24px 5px #464646;
+    h1 {
+        font-weight: bold;
+        font-variant: all-petite-caps;
+        font-size: 70px;
+        color: #e6e604;
+        font-family: 'Montserrat', sans-serif;
+    }
+    h2 {
+        font-weight: bold;
+        font-variant: all-petite-caps;
+        font-size: 40px;
+        color: #e6e604;
+        font-family: 'Montserrat', sans-serif;
+        }
+    }
+}
+.bg {
+    background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/IevwMJs/star-wars-hyperspace-travel-24fps_sixx_ceqe_thumbnail-full01.png");
+    position: absolute;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+    z-index: -2;;
+}

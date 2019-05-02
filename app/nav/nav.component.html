@@ -1,0 +1,11 @@
+<!-- As a link -->
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Star Wars Plot Generator</a>
+  <span class="navbar-text">
+
+  <button class="btn btn-outline-secondary" routerLink="/plot">Plot overview</button>
+  <button class="btn btn-outline-secondary js" routerLink="/json" (click)="updatePlot()">Get plot in JSON</button>
+  <button class="btn btn-outline-secondary exportPDF" (click)="updatePlot()">Export plot to PDF</button>
+
+  </span>
+</nav>

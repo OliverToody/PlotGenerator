@@ -1,0 +1,184 @@
+<div class="container-fluid">
+  <div class="main-data" id="main-data">
+      <div class="row">
+          <div class="col-12">
+            <div>
+        <label>Plot title</label>
+        <input type="text" placeholder="Enter plot title" [(ngModel)]="title"> </div>
+          <br>
+          <label>Description</label>
+          <textarea placeholder="Enter plot description" [(ngModel)]="description"></textarea>
+        </div>
+    </div>
+  </div>
+  <div class="row res-data">
+    <div class="col-12">
+      <h5 class="ur">Used resources</h5>
+    </div>
+    <div class="col-md-4">
+      <table class="table table-dark table-striped table-sm">
+        <thead>
+          <th>
+            <caption><b>People</b></caption>
+          </th>
+        </thead>
+        <tr *ngFor="let charachter of plot['people'] | keyvalue">
+          <td>
+            {{ charachter.value.name}}
+          </td>
+          <td class="text-center action-btns">
+
+            <button class="btn btn-primary btn-sm" (click)="showDetail(charachter, 'people')"><i class="fa fa-info"></i></button>
+            <button class="btn btn-danger btn-sm" (click)="remove(charachter.key, 'people')"><i
+                class="fa fa-times"></i></button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <table class="table table-dark table-striped table-sm">
+        <thead>
+          <th>
+            <caption><b>Planets</b></caption>
+          </th>
+        </thead>
+        <tr *ngFor="let planet of plot['planets'] | keyvalue">
+          <td>
+            {{ planet.value.name}}
+          </td>
+          <td class="text-center action-btns">
+              <button class="btn btn-primary btn-sm" (click)="showDetail(planet, 'planets')"><i class="fa fa-info"></i></button>
+            <button class="btn btn-danger btn-sm" (click)="remove(planet.key, 'planets')"><i
+                class="fa fa-times"></i></button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <table class="table table-dark table-striped table-sm">
+        <thead>
+          <th>
+            <caption><b>Species</b></caption>
+          </th>
+        </thead>
+        <tr *ngFor="let specie of plot['species'] | keyvalue">
+          <td>
+            {{ specie.value.name}}
+          </td>
+          <td class="text-center action-btns">
+              <button class="btn btn-primary btn-sm" (click)="showDetail(specie,'species')"><i class="fa fa-info"></i></button>
+            <button class="btn btn-danger btn-sm" (click)="remove(specie.key, 'species')"><i
+                class="fa fa-times"></i></button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="detail" *ngIf="detail" (click)="showDetail()">
+      <div class="inner text-center">
+        <h5><b>{{resDetail.value.name}}</b></h5>
+        <table class="table" *ngIf="resType == 'people'">
+          <tr>
+            <td>Birthday</td>
+            <td>{{resDetail.value.birth_year}}</td>
+          </tr>
+          <tr>
+            <td>Eye colour</td>
+            <td>{{resDetail.value.eye_color}}</td>
+          </tr>
+          <tr>
+            <td>Gender</td>
+            <td>{{resDetail.value.gender}}</td>
+          </tr>
+          <tr>
+            <td>Mass</td>
+            <td>{{resDetail.value.mass}}</td>
+          </tr>
+          <tr>
+            <td>Skin color
+            </td>
+            <td>{{resDetail.value.skin_color}}</td>
+          </tr>
+        </table>
+
+        <table class="table" *ngIf="resType == 'planets'">
+            <tr>
+              <td>Climate</td>
+              <td>{{resDetail.value.climate}}</td>
+            </tr>
+            <tr>
+              <td>Diameter</td>
+              <td>{{resDetail.value.diameter}}</td>
+            </tr>
+            <tr>
+              <td>Population</td>
+              <td>{{resDetail.value.population}}</td>
+            </tr>
+            <tr>
+              <td>Terrain</td>
+              <td>{{resDetail.value.terrain}}</td>
+            </tr>
+            <tr>
+              <td>Orbital period</td>
+              <td>{{resDetail.value.orbital_period}}</td>
+            </tr>
+          </table>
+
+          <table class="table" *ngIf="resType == 'species'">
+              <tr>
+                <td>Avg. height</td>
+                <td>{{resDetail.value.average_height}}</td>
+              </tr>
+              <tr>
+                <td>Avg. lifespan</td>
+                <td>{{resDetail.value.average_lifespan}}</td>
+              </tr>
+              <tr>
+                <td>Classification</td>
+                <td>{{resDetail.value.classification}}</td>
+              </tr>
+              <tr>
+                <td>Eye colors</td>
+                <td>{{resDetail.value.eye_colors}}</td>
+              </tr>
+              <tr>
+                <td>Skin colors
+                </td>
+                <td>{{resDetail.value.skin_colors}}</td>
+              </tr>
+            </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- tempalte for PDF -->
+<div style="display: none">
+<div id="forPrint">
+  <div style="text-align: center; ">
+  <h1>{{title}}</h1>
+  <p style="font-style: italic;">{{description}}</p>
+  </div>
+  <hr>
+  <h3>Resources</h3>
+  <p>Vivamus hendrerit tincidunt massa, nec auctor mi euismod eget. Aliquam elementum metus faucibus, rutrum nunc sed, fermentum ante. Donec maximus est nisl, et molestie nulla lacinia a. Nam lacinia enim sapien. Mauris ut consectetur metus. Aenean dolor sapien, viverra eu ante quis, bibendum blandit ipsum. </p>
+    <ul style="display: inline-block; width: 180px;">
+      <span><b>People</b></span><br>
+    <li *ngFor="let charachter of plot['people'] | keyvalue">
+        {{ charachter.value.name}}
+  </li>
+  </ul>
+  <ul style="display: inline-block; width: 180px;">
+      <span><b>Planets</b></span><br>
+      <li *ngFor="let planet of plot['planets'] | keyvalue">
+          {{ planet.value.name}}
+    </li>
+  </ul>
+
+    <ul style="display: inline-block; width: 180px;">
+        <span><b>Species</b></span><br>
+        <li *ngFor="let species of plot['species'] | keyvalue">
+            {{ species.value.name}}
+      </li>
+      </ul>
+
+</div>
+</div>

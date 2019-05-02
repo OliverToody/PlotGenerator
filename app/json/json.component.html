@@ -1,0 +1,38 @@
+<!-- Json -->
+<div class="container json">
+  <br>
+  <h3 class="text-center">Plot in JSON format</h3>
+  {{plotJson}}
+</div>
+<!-- Tempalte for pdf export-->
+<div style="display: none">
+  <div id="forPrint">
+    <div style="text-align: center; ">
+      <h1>{{plot['title']}}</h1>
+      <p style="font-style: italic;">{{plot['description']}}</p>
+    </div>
+    <hr>
+    <h3>Resources</h3>
+    <p>Vivamus hendrerit tincidunt massa, nec auctor mi euismod eget. Aliquam elementum metus faucibus, rutrum nunc sed,
+      fermentum ante. Donec maximus est nisl, et molestie nulla lacinia a. Nam lacinia enim sapien. Mauris ut
+      consectetur metus. Aenean dolor sapien, viverra eu ante quis, bibendum blandit ipsum. </p>
+    <ul style="display: inline-block; width: 180px;">
+      <span><b>People</b></span><br>
+      <li *ngFor="let charachter of plot['people'] | keyvalue">
+        {{ charachter.value.name}}
+      </li>
+    </ul>
+    <ul style="display: inline-block; width: 180px;">
+      <span><b>Planets</b></span><br>
+      <li *ngFor="let planet of plot['planets'] | keyvalue">
+        {{ planet.value.name}}
+      </li>
+    </ul>
+    <ul style="display: inline-block; width: 180px;">
+      <span><b>Species</b></span><br>
+      <li *ngFor="let species of plot['species'] | keyvalue">
+        {{ species.value.name}}
+      </li>
+    </ul>
+  </div>
+</div>

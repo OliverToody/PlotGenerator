@@ -1,0 +1,91 @@
+<div class="row res-header" id="print">
+  <div class="col-12">
+<h5 class="text-center">Search for resources</h5>
+<ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+      <a class="nav-link active" (click)="resource('people')">People</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" (click)="resource('planets')">Planets</a>
+      </li>
+    <li class="nav-item">
+        <a class="nav-link" (click)="resource('species')">Species</a>
+      </li>
+  </ul>
+</div>
+</div>
+<div class="res-data">
+  <div *ngIf="isLoading" class="load-div">
+      <i class="fas fa-spinner fa-spin"></i>
+  </div>
+  <div  *ngIf="!isLoading">
+<div class="card" *ngFor="let res of resourceData">
+ <div class="card-header">
+   <div class="row">
+     <div class="col-8">
+        <div class="card-title">
+            <h5>{{res.name}}</h5>
+        </div>
+     </div>
+     <div class="col-4">
+        <button class="btn btn-success btn-sm" (click)="addToPlot(res, type)">Add to plot</button>
+
+     </div>
+   </div>
+  
+ </div>
+
+  <div class="card-body" *ngIf="type == 'people'">
+    <table class="table">
+      <tr>
+        <td>
+            <p>Height: {{res.height}}</p>
+            <p>Gender: {{res.gender}}</p>
+            <p>Hair color: {{res.hair_color}}</p>
+        </td>
+        <td>
+            <p>Mass: {{res.mass}}</p>
+            <p>Skin color: {{res.skin_color}}</p>
+            <p>Birth year: {{res.birth_year}}</p>
+        </td>
+      </tr>
+    </table>
+   
+  </div>
+
+  <div class="card-body" *ngIf="type == 'planets'">
+      <table class="table">
+          <tr>
+            <td>
+      <p>Rotation period: {{res.rotation_period}}</p>
+      <p>Population: {{res.population}}</p>
+      <p>Terrain: {{res.terrain}}</p>
+      </td>
+      <td>
+          <p>Diameter: {{res.diameter}}</p>
+          <p>Surface water: {{res.surface_water}}</p>
+          <p>Climate: {{res.climate}}</p>
+      </td>
+      </tr>
+      </table>
+  </div>
+
+  <div class="card-body" *ngIf="type == 'species'">
+      <table class="table">
+      <tr>
+      <td>
+      <p>Language: {{res.language}}</p>
+      <p>Skin colors: {{res.skin_colors}}</p>
+      <p>Average lifespan: {{res.average_lifespan}}</p>
+      </td>
+      <td>
+      <p>Average height: {{res.average_height}}</p>
+      <p>Classification {{res.classification}}</p>
+      <p>Hair colors: {{res.hair_colors}}</p>
+      </td>
+      </tr>
+      </table>
+  </div>
+ </div> 
+</div>
+</div>
